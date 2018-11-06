@@ -1,9 +1,11 @@
 var wordbank = ["chocolate","caramel","gumdrop","lollipop","licorice","taffy","toffee","skittles","smarties","twix","snickers","raisinets"];
 var lifepoints = 12;
 var wrongGuess = [];
-var computerWord;
 var computerWord = wordbank[Math.floor(Math.random()*wordbank.length)];
-document.getElementById("currentWord").innerHTML = "__ ".repeat(computerWord.length);
+window.onload = function() {
+    document.getElementById("currentWord").innerHTML = "__ ".repeat(computerWord.length);
+}
+
 
 
 document.onkeyup = function (event) {
