@@ -18,6 +18,8 @@ document.onkeyup = function (event) {
     var foundinword = computerWord.search(userGuess);
     var userGuess = event.key.toLowerCase();
 }
+
+// Boolean variable for whether or not the userGuess is in the computer word; starts as false
 var inWord = false;
 
 for (var i=0; i < computerWord.length; i++) {
