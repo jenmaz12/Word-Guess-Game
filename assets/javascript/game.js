@@ -8,28 +8,29 @@ var lifepoints = 12;
 var wrongGuess = [];
 // computer randomly selects word from word bank for current word
 var computerWord = wordbank[Math.floor(Math.random()*wordbank.length)];
-
+var userGuess;
+var inWord = false;
 // create spaces for each character of current word
 document.getElementById("currentWord").innerHTML = "__ ".repeat(computerWord.length);
 
-
-// when the user presses a key, ensure key is lower case and search the computer word for the user's guess
+// when the user presses a key, ensure key is lower case
 document.onkeyup = function (event) {
-    var foundinword = computerWord.search(userGuess);
     var userGuess = event.key.toLowerCase();
 }
-
 // Boolean variable for whether or not the userGuess is in the computer word; starts as false
-var inWord = false;
 
-for (var i=0; i < computerWord.length; i++) {
-    if (userGuess===computerWord.charAt (i)) {
-        inWord = true;
-        document.getElementById("currentWord").charAt(i) = userGuess;
-    }
-    else {
+var foundinword = computerWord.search(userGuess);
+var wrongguesses = document.getElementById("wrong-guesses");
+
+// for (var i=0; i < computerWord.length; i++) {
+    if (foundinword===-1) {
         inWord = false;
         wrongGuess.push(userGuess);
+        wrongguesses.textContent = wrongGuess;
     }
-}
+    else {
+        inWord = true;
+        document.getElementById("currentWord").charAt(foundinword) = userGuess;
+    }
+// }
 }

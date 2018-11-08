@@ -1,0 +1,36 @@
+body {
+    background-image: url("../images/background.jpg");
+    margin: 0;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+header {
+    width: 100%;
+    background-color: aquamarine;
+    text-align: center;
+    padding: 10px;
+}
+
+h1 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    padding-bottom: 10px;
+}
+
+h2 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+}
+
+.container {
+    width: 55%;
+    padding: 3%;
+    margin-left: 21%;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    background-color: rgba(255, 240, 245, 0.438);
+    
+}
