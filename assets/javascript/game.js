@@ -22,7 +22,7 @@ document.onkeyup = function (event) {
 var foundinword = computerWord.search(userGuess);
 var wrongguesses = document.getElementById("wrong-guesses");
 
-// for (var i=0; i < computerWord.length; i++) {
+for (var i=0; i < computerWord.length; i++) {
     if (foundinword===-1) {
         inWord = false;
         wrongGuess.push(userGuess);
@@ -32,5 +32,5 @@ var wrongguesses = document.getElementById("wrong-guesses");
         inWord = true;
         document.getElementById("currentWord").charAt(foundinword) = userGuess;
     }
-// }
+}
 }
