@@ -12,20 +12,22 @@ var computerWord = wordbank[Math.floor(Math.random()*wordbank.length)];
 // create spaces for each character of current word
 document.getElementById("currentWord").innerHTML = "__ ".repeat(computerWord.length);
 
+
 // when the user presses a key, ensure key is lower case and search the computer word for the user's guess
 document.onkeyup = function (event) {
-    var userGuess = event.key.toLowerCase();
     var foundinword = computerWord.search(userGuess);
+    var userGuess = event.key.toLowerCase();
 }
 var inWord = false;
 
 for (var i=0; i < computerWord.length; i++) {
     if (userGuess===computerWord.charAt (i)) {
         inWord = true;
-        document.getElementById("currentWord").innerHTML = userGuess
+        document.getElementById("currentWord").charAt(i) = userGuess;
     }
     else {
-
+        inWord = false;
+        wrongGuess.push(userGuess);
     }
 }
 }
