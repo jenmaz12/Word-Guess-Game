@@ -16,14 +16,12 @@ document.getElementById("currentWord").innerHTML = "__ ".repeat(computerWord.len
 
 // when the user presses a key, ensure key is lower case
 document.onkeyup = function (event) {
-    var userGuess = event.key.toLowerCase();
-}
+    userGuess = event.key.toLowerCase();
 
 // define foundinword as index number where userGuess is or is not (-1) in the computerword
 var foundinword = computerWord.search(userGuess);
 var wrongguesses = document.getElementById("wrong-guesses");
 
-for (var i=0; i < computerWord.length; i++) {
     if (foundinword===-1) {
         inWord = false;
         wrongGuess.push(userGuess);
@@ -31,7 +29,11 @@ for (var i=0; i < computerWord.length; i++) {
     }
     else {
         inWord = true;
-        document.getElementById("currentWord").innerHTML.charAt(foundinword) = userGuess;
+        var placeholderword = document.getElementById("currentWord").innerHTML;
+        var placeholderArray = placeholderword.split(" ");
+        placeholderArray[foundinword] = userGuess;
+        document.getElementById("currentWord").innerHTML = placeholderArray.join(" ");
     }
+
 }
 }
