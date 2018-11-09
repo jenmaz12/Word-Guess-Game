@@ -22,18 +22,35 @@ document.onkeyup = function (event) {
 var foundinword = computerWord.search(userGuess);
 var wrongguesses = document.getElementById("wrong-guesses");
 
-    if (foundinword===-1) {
-        inWord = false;
-        wrongGuess.push(userGuess);
-        wrongguesses.textContent = wrongGuess;
-    }
-    else {
+
+    // if (foundinword===-1) {
+    //     inWord = false;
+    //     wrongGuess.push(userGuess);
+    //     wrongguesses.textContent = wrongGuess;
+    // }
+    // else {
+    //     inWord = true;
+    //     var placeholderword = document.getElementById("currentWord").innerHTML;
+    //     var placeholderArray = placeholderword.split(" ");
+    //     placeholderArray[foundinword] = userGuess;
+    //     document.getElementById("currentWord").innerHTML = placeholderArray.join(" ");
+    // }
+// loop through length of computerword
+for (var i=0; i<computerWord.length; i++) {
+    var wordArray = computerWord.split("");
+    if (userGuess===wordArray.indexOf(i)) {
         inWord = true;
         var placeholderword = document.getElementById("currentWord").innerHTML;
         var placeholderArray = placeholderword.split(" ");
-        placeholderArray[foundinword] = userGuess;
+        placeholderArray[i]=userGuess; 
         document.getElementById("currentWord").innerHTML = placeholderArray.join(" ");
+       
     }
-
-}
-}
+    else {
+        // inWord = false;
+        // wrongGuess.push(userGuess);
+        // wrongguesses.textContent = wrongGuess;  
+    }
+};
+};
+};
