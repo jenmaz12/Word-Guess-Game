@@ -9,6 +9,7 @@ var wrongGuess = [];
 // computer randomly selects word from word bank for current word
 var computerWord = wordbank[Math.floor(Math.random()*wordbank.length)];
 var userGuess;
+// Boolean variable for whether or not the userGuess is in the computer word; starts as false
 var inWord = false;
 // create spaces for each character of current word
 document.getElementById("currentWord").innerHTML = "__ ".repeat(computerWord.length);
@@ -17,8 +18,8 @@ document.getElementById("currentWord").innerHTML = "__ ".repeat(computerWord.len
 document.onkeyup = function (event) {
     var userGuess = event.key.toLowerCase();
 }
-// Boolean variable for whether or not the userGuess is in the computer word; starts as false
 
+// define foundinword as index number where userGuess is or is not (-1) in the computerword
 var foundinword = computerWord.search(userGuess);
 var wrongguesses = document.getElementById("wrong-guesses");
 
@@ -30,7 +31,7 @@ for (var i=0; i < computerWord.length; i++) {
     }
     else {
         inWord = true;
-        document.getElementById("currentWord").charAt(foundinword) = userGuess;
+        document.getElementById("currentWord").innerHTML.charAt(foundinword) = userGuess;
     }
 }
 }
