@@ -1,11 +1,12 @@
+// winCount starts at 0
+var winCount = 0;
 // load window first
 window.onload = function() {
 // define word bank array
 var wordbank = ["chocolate","caramel","gumdrop","lollipop","licorice","taffy","toffee","skittles","smarties","twix","snickers","raisinets","fudge","butterfinger","dots","crunch","starburst","payday"];
 // define user life points at start
 var lifepoints = 12;
-// winCount starts at 0
-var winCount = 0;
+
 // define array for wrong guesses to be pushed to
 var wrongGuess = [];
 // computer randomly selects word from word bank for current word
