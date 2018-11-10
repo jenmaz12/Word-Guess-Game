@@ -53,6 +53,7 @@ document.onkeyup = function (event) {
             document.getElementById("currentWord").innerHTML = "__ ".repeat(computerWord.length);
             placeholderword = document.getElementById("currentWord").innerHTML;
             wrongGuess = [];
+            lifepoints = 12;
         }
         
     } else {
@@ -72,7 +73,7 @@ document.onkeyup = function (event) {
         // if there are no more __ in the placeholder array and the user has 0 or positive lifepoints left, the user has guessed all of the letters in the word and has won
         if (placeholderArray.indexOf("__")===-1 && lifepoints>=0) {
             // alert user they won
-            document.onload = alert("You win!!");
+            alert("You win!!");
             // choose a new word
             computerWord = wordbank[Math.floor(Math.random()*wordbank.length)];
             // increase winCount by 1 after page reloads
@@ -80,6 +81,8 @@ document.onkeyup = function (event) {
             document.getElementById("currentWord").innerHTML = "__ ".repeat(computerWord.length);
             placeholderword = document.getElementById("currentWord").innerHTML;
             wrongGuess = [];
+            document.getElementById("wrong-guesses").innerHTML = wrongGuess;
+            lifepoints = 12;
             console.log(winCount);
         }  
         // if lifepoints are greater than zero, subtract 1 for each guess
@@ -94,6 +97,8 @@ document.onkeyup = function (event) {
             document.getElementById("currentWord").innerHTML = "__ ".repeat(computerWord.length);
             placeholderword = document.getElementById("currentWord").innerHTML;
             wrongGuess = [];
+            document.getElementById("wrong-guesses").innerHTML = wrongGuess;
+            lifepoints = 12;
         }
         
          
