@@ -23,6 +23,9 @@ document.getElementById("lifePoints").innerHTML= "Lifepoints: " + lifepoints;
 
 document.getElementById("winCount").innerHTML= winCount;
 
+var placeholderword = document.getElementById("currentWord").innerHTML;
+var placeholderArray = placeholderword.split(" ");
+
 // when the user presses a key, ensure key is lower case
 document.onkeyup = function (event) {
     userGuess = event.key.toLowerCase();
@@ -46,13 +49,15 @@ document.onkeyup = function (event) {
         // if lifepoints are less than or equal to zero then the user receives a "You lose!" alert and page reloads
         else if (lifepoints<=0) {
             alert("You lose!");
-            location.reload();
+            computerWord = wordbank[Math.floor(Math.random()*wordbank.length)];
+            document.getElementById("currentWord").innerHTML = "__ ".repeat(computerWord.length);
+            placeholderword = document.getElementById("currentWord").innerHTML;
+            wrongGuess = [];
         }
         
     } else {
         inWord = true;
-        var placeholderword = document.getElementById("currentWord").innerHTML;
-        var placeholderArray = placeholderword.split(" ");
+        
         // loop through the length of the computerword
         for (var i=0; i<computerWord.length; i++) {
             // split computerword while in the loop
@@ -68,8 +73,8 @@ document.onkeyup = function (event) {
         if (placeholderArray.indexOf("__")===-1 && lifepoints>=0) {
             // alert user they won
             document.onload = alert("You win!!");
-            // reload page to choose new word
-            location.reload();
+            // choose a new word
+            computerWord = wordbank[Math.floor(Math.random()*wordbank.length)];
             // increase winCount by 1 after page reloads
             document.getElementById("winCount").innerHTML = winCount + 1;
             console.log(winCount);
@@ -82,7 +87,7 @@ document.onkeyup = function (event) {
         }
         else if (lifepoints<=0 && placeholderArray.indexOf("__")>-1) {
             alert("You lose!");
-            location.reload();
+            computerWord = wordbank[Math.floor(Math.random()*wordbank.length)];
         }
         
          
