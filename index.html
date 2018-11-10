@@ -7,19 +7,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/reset.css"/>
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
+    <link href="https://fonts.googleapis.com/css?family=Spicy+Rice" rel="stylesheet">
     <script src="assets/javascript/game.js"></script>
 </head>
 <body>
     <header>
-        <h1>Hangman: Candy Edition</h1>
+        <h1>Hangman: <div id="candyEdition">Candy Edition</div></h1>
         <h2>Press any key to get started!</h2>
     </header>
     <div class="container">
-        <h3>Wins: </h3>
-        <div id="winCount"></div>
+        <section id="Wins">
+            <h3>Wins: </h3>
+            <div id="winCount"></div>
+        </section>
         <div id="lifePoints"></div>
         <p id="currentWord"></p>
-        <div>
+        <div id="wrong">
             <h3>Wrong Guesses</h3>
             <p id="wrong-guesses"></p>
         </div>

@@ -4,6 +4,7 @@ window.onload = function() {
 var wordbank = ["chocolate","caramel","gumdrop","lollipop","licorice","taffy","toffee","skittles","smarties","twix","snickers","raisinets"];
 // define user life points at start and minimum lifepoints (0)
 var lifepoints = 12;
+var winCount = 0;
 // define array for wrong guesses to be pushed to
 var wrongGuess = [];
 // computer randomly selects word from word bank for current word
@@ -15,7 +16,9 @@ var inWord = false;
 document.getElementById("currentWord").innerHTML = "__ ".repeat(computerWord.length);
 
 // show beginning life points
-document.getElementById("lifePoints").innerHTML= lifepoints;
+document.getElementById("lifePoints").innerHTML= "Lifepoints: " + lifepoints;
+
+document.getElementById("winCount").innerHTML= winCount;
 
 // when the user presses a key, ensure key is lower case
 document.onkeyup = function (event) {
@@ -32,9 +35,9 @@ var wrongguesses = document.getElementById("wrong-guesses");
         wrongguesses.textContent = wrongGuess;
         if (lifepoints>0) {
             lifepoints = lifepoints - 1;
-            document.getElementById("lifePoints").innerHTML = lifepoints;
+            document.getElementById("lifePoints").innerHTML = "Lifepoints: " + lifepoints;
         }
-        else {
+        else if (lifepoints<=0) {
             alert("You lose!");
             location.reload();
         }
@@ -43,11 +46,12 @@ var wrongguesses = document.getElementById("wrong-guesses");
         inWord = true;
         var placeholderword = document.getElementById("currentWord").innerHTML;
         var placeholderArray = placeholderword.split(" ");
+        // if lifepoints are greater than zero, subtract 1 for each guess
         if (lifepoints>0) {
             lifepoints = lifepoints - 1;
-            document.getElementById("lifePoints").innerHTML = lifepoints;
+            document.getElementById("lifePoints").innerHTML = "Lifepoints: " + lifepoints;
         }
-        else {
+        else if (lifepoints<=0) {
             alert("You lose!");
             location.reload();
         }
@@ -61,6 +65,11 @@ var wrongguesses = document.getElementById("wrong-guesses");
                 placeholderArray[i]=userGuess;
             }
             document.getElementById("currentWord").innerHTML = placeholderArray.join(" ");
+            if (placeholderArray.indexOf("__")===-1 && lifepoints>=0) {
+                document.onload = alert("You win!!");
+                location.reload();
+                document.getElementById("wincount").innerHTML = winCount + 1;
+            }
         }   
 
     };
