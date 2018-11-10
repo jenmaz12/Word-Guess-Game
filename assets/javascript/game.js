@@ -77,6 +77,9 @@ document.onkeyup = function (event) {
             computerWord = wordbank[Math.floor(Math.random()*wordbank.length)];
             // increase winCount by 1 after page reloads
             document.getElementById("winCount").innerHTML = winCount + 1;
+            document.getElementById("currentWord").innerHTML = "__ ".repeat(computerWord.length);
+            placeholderword = document.getElementById("currentWord").innerHTML;
+            wrongGuess = [];
             console.log(winCount);
         }  
         // if lifepoints are greater than zero, subtract 1 for each guess
@@ -88,6 +91,9 @@ document.onkeyup = function (event) {
         else if (lifepoints<=0 && placeholderArray.indexOf("__")>-1) {
             alert("You lose!");
             computerWord = wordbank[Math.floor(Math.random()*wordbank.length)];
+            document.getElementById("currentWord").innerHTML = "__ ".repeat(computerWord.length);
+            placeholderword = document.getElementById("currentWord").innerHTML;
+            wrongGuess = [];
         }
         
          
