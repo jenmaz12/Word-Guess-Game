@@ -2,7 +2,7 @@
 window.onload = function() {
 // define word bank array
 var wordbank = ["chocolate","caramel","gumdrop","lollipop","licorice","taffy","toffee","skittles","smarties","twix","snickers","raisinets"];
-// define user life points at start
+// define user life points at start and minimum lifepoints (0)
 var lifepoints = 12;
 // define array for wrong guesses to be pushed to
 var wrongGuess = [];
@@ -30,19 +30,33 @@ var wrongguesses = document.getElementById("wrong-guesses");
         inWord = false;
         wrongGuess.push(userGuess);
         wrongguesses.textContent = wrongGuess;
+        if (lifepoints>0) {
+            lifepoints = lifepoints - 1;
+            document.getElementById("lifePoints").innerHTML = lifepoints;
+        }
+        else {
+            alert("You lose!");
+            location.reload();
+        }
         
     } else {
         inWord = true;
         var placeholderword = document.getElementById("currentWord").innerHTML;
         var placeholderArray = placeholderword.split(" ");
+        if (lifepoints>0) {
+            lifepoints = lifepoints - 1;
+            document.getElementById("lifePoints").innerHTML = lifepoints;
+        }
+        else {
+            alert("You lose!");
+            location.reload();
+        }
         // loop through the length of the computerword
         for (var i=0; i<computerWord.length; i++) {
             // split computerword while in the loop
             var wordArray = computerWord.split("");
-            debugger
             // if userGuess equals the index of the split up computerword
             if (userGuess===wordArray[i]) {
-                debugger
                 // then placeholder array equal userGuess
                 placeholderArray[i]=userGuess;
             }
