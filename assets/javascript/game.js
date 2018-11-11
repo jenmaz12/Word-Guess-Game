@@ -54,7 +54,11 @@ document.onkeyup = function (event) {
             placeholderword = document.getElementById("currentWord").innerHTML;
             placeholderArray = placeholderword.split(" ");
             wrongGuess = [];
+            document.getElementById("wrong-guesses").innerHTML = wrongGuess;
             lifepoints = 12;
+            document.getElementById("lifePoints").innerHTML = "Lifepoints: " + lifepoints;
+            winCount = 0;
+            document.getElementById("winCount").innerHTML= winCount;
         }
         
     } else {
@@ -111,6 +115,8 @@ document.onkeyup = function (event) {
             document.getElementById("wrong-guesses").innerHTML = wrongGuess;
             lifepoints = 12;
             document.getElementById("lifePoints").innerHTML = "Lifepoints: " + lifepoints;
+            winCount = 0;
+            document.getElementById("winCount").innerHTML= winCount;
         }
         
          
