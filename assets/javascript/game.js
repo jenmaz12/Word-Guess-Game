@@ -77,14 +77,22 @@ document.onkeyup = function (event) {
             alert("You win!!");
             // choose a new word
             computerWord = wordbank[Math.floor(Math.random()*wordbank.length)];
-            // increase winCount by 1 after page reloads
-            document.getElementById("winCount").innerHTML = winCount + 1;
+            // increase winCount by 1
+            winCount++
+            // print new winCount
+            document.getElementById("winCount").innerHTML = winCount;
+            // print blanks for new word
             document.getElementById("currentWord").innerHTML = "__ ".repeat(computerWord.length);
+            // reset placeholderword to new currentWord
             placeholderword = document.getElementById("currentWord").innerHTML;
+        //    reset placeholderArray
             placeholderArray = placeholderword.split(" ");
+            // empty wrong guess array and print to screen
             wrongGuess = [];
             document.getElementById("wrong-guesses").innerHTML = wrongGuess;
+            // reset lifepoints and print to screen
             lifepoints = 12;
+            document.getElementById("lifePoints").innerHTML = "Lifepoints: " + lifepoints;
             console.log(winCount);
         }  
         // if lifepoints are greater than zero, subtract 1 for each guess
@@ -102,6 +110,7 @@ document.onkeyup = function (event) {
             wrongGuess = [];
             document.getElementById("wrong-guesses").innerHTML = wrongGuess;
             lifepoints = 12;
+            document.getElementById("lifePoints").innerHTML = "Lifepoints: " + lifepoints;
         }
         
          
